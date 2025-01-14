@@ -24,15 +24,4 @@ The underwater environment is characterized by high pressures, limited visibilit
   - Zero steady-state error.
   - Smooth and stable actuator adjustments.
 
-## 📂 Repository Structure
-```plaintext
-.
-├── src/
-│   ├── identification.m        # MATLAB scripts for parameter identification
-│   ├── linearization.m         # Linearization and state-space derivation
-│   ├── lqr_controller.m        # Implementation of the LQR control
-│   ├── simulation_results.m    # Simulation and plotting scripts
-├── docs/
-│   ├── report.pdf              # Full project report
-│   ├── presentation.pdf        # Project presentation slides
-└── README.md                   # Project description and usage guide
+
