@@ -1,27 +1,37 @@
-# Autonomous Underwater Vehicle Depth Control Using Linear Quadratic Regulator (LQR)
+# AUV depth control with LQR
 
-This repository contains the implementation and simulation of an LQR-based control system for the depth control of an Autonomous Underwater Vehicle (AUV) operating in challenging underwater environments. The project was developed as part of the **Control System** course.
+MATLAB and Simulink coursework on modelling and controlling the vertical motion of an autonomous underwater vehicle. The project covers hydrodynamic parameters, linearisation, and an LQR controller for depth and pitch response.
 
-## 🚀 Project Overview
+## Start here
 
-### Problem Statement
-The underwater environment is characterized by high pressures, limited visibility, dynamic currents, and unpredictable gradients. Traditional PID controllers often fail to provide sufficient robustness and stability in such conditions. This project aims to design an LQR-based control system for the vertical motion of an AUV, focusing on depth command optimization.
+| Path | Purpose |
+| --- | --- |
+| `Example_RunSimulation.m` | Main simulation entry point. |
+| `MIR_AUVSimulator_R2021b.slx` | Simulink vehicle and control model. |
+| `Conf/AUVParameters.json` | Vehicle parameters. |
+| `Conf/PilotParameters.json` | Controller parameters. |
+| `Initialization/`, `Inputs/`, `Noise/` | Initial state, commands, and noise configuration. |
+| `Forces/`, `Piloting/`, `Tools/` | Model, controller, and supporting functions. |
+| `Plots/`, `Doc/` | Visualisations and project documentation. |
 
-### Objectives
-1. Identify and calculate missing hydrodynamic parameters.
-2. Linearize the AUV's nonlinear model and derive the state-space representation.
-3. Design and implement an optimal LQR controller to:
-   - Minimize pitch oscillations.
-   - Ensure smooth lift speed transitions.
-   - Reduce control overshoot while maintaining stability.
+## Run the simulation
 
-## 🛠 Features
-- **Mathematical Modeling**: Linearization of the nonlinear equations of motion.
-- **Control Design**: Implementation of an LQR controller in MATLAB.
-- **Simulation**: Validation of the controller with real-world scenarios, focusing on depth, pitch angle, and actuator dynamics.
-- **Performance Metrics**:
-  - Minimal overshoot (1.4 m, within the 2 m limit).
-  - Zero steady-state error.
-  - Smooth and stable actuator adjustments.
+Clone the repository and open its root folder in MATLAB. MATLAB, Simulink, and any toolboxes used by the model must be available.
 
+```matlab
+run('Example_RunSimulation.m')
+```
 
+The script configures the MATLAB path, loads the JSON parameters, creates the initial state and Simulink buses, runs the model, and plots the result. It begins by clearing the workspace and resetting the MATLAB path; save other work before running it.
+
+The supplied example uses a 0.1 second sample interval and an 870 second simulation duration. Edit the parameters and input functions to investigate different cases. Inspect the model callbacks and referenced functions when using another MATLAB release.
+
+## Evaluation
+
+Compare depth error, pitch, actuator response, and control effort for a defined input and noise configuration. The original project investigates overshoot and steady state response. Performance should be reported with the exact configuration used; simulation results do not establish hardware performance.
+
+## Context
+
+Developed as part of a Control System course. Retain the course material and third party notices supplied with the simulator.
+
+Related project: [Sparus AUV modelling and simulation](https://github.com/ShahidHasib586/Simulation-of-Underwater-Vehicle-Sparus-AUV).
